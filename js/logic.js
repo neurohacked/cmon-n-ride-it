@@ -10,6 +10,9 @@ $(document).ready(function() {
 
     var database = firebase.database();
 
+    //User Authentication
+    var provider = new firebase.auth.GithubAuthProvider();
+
     // Choo Choo Time
     var audio = new Audio('aud/ride-it.mp3');
 
