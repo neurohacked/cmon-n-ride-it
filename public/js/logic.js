@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+    // FIREBASE /////////////////////////////////////////////////////////
     // Initialize Firebase
     var config = {
         apiKey: "AIzaSyCFq-IZOOpNt317VWEbDEXv0xrYn4ETEyo",
@@ -10,6 +12,7 @@ $(document).ready(function() {
 
     var database = firebase.database();
 
+    // Firebase Authentication ------------------------------------------
     //User Authentication - GitHub provider
     var provider = new firebase.auth.GithubAuthProvider();
 
@@ -36,6 +39,27 @@ $(document).ready(function() {
         var credential = error.credential;
         // ...
     });
+    // Get current user
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+            $('#account').html('Sign out');
+        } else {
+            // No user is signed in.
+            $('#account').hide();
+            $('#sign-in').show();
+        }
+    });
+    // Sign out
+    $('#sign-out').on('click', function() {
+        firebase.auth().signOut().then(function() {
+            // Sign-out successful.
+        }, function(error) {
+            // An error happened.
+        });
+    });
+
+    // MAIN LOGIC ///////////////////////////////////////////////////////
 
     // Choo Choo Time
     var audio = new Audio('aud/ride-it.mp3');
