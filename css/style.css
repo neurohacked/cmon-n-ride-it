@@ -15,6 +15,9 @@ h1,h3 {
     margin-right: 10px;
     height: 100%;
 }
+#choochoo {
+    margin-right: 10px;
+}
 .modal-header, .modal-footer {
     border: none;
 }
