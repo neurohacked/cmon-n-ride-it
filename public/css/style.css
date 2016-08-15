@@ -1,0 +1,32 @@
+html {
+    height: 100%;
+}
+body {
+    padding-top: 80px;
+}
+h1,h3 {
+    text-align: center;
+}
+#home .navbar-brand {
+    padding: 7.5px 15px 6.5px;
+}
+#home .navbar-brand>img {
+    display: inline;
+    margin-right: 10px;
+    height: 100%;
+}
+#choochoo {
+    margin-right: 10px;
+}
+.modal-header, .modal-footer {
+    border: none;
+}
+.modal-body {
+    text-align: center;
+    font-weight: bold;
+}
+@media screen and (max-width: 354px) {
+    #home .navbar-brand>span {
+        display: none;
+    }
+}

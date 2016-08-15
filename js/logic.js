@@ -1,10 +1,10 @@
 $(document).ready(function() {
     // Initialize Firebase
     var config = {
-        apiKey: "AIzaSyD8hgryvHFfK5H8CUnPIBfh4QAaJjK1d5U",
-        authDomain: "cmon-n-ride-it.firebaseapp.com",
-        databaseURL: "https://cmon-n-ride-it.firebaseio.com",
-        storageBucket: "cmon-n-ride-it.appspot.com",
+        apiKey: "AIzaSyCFq-IZOOpNt317VWEbDEXv0xrYn4ETEyo",
+        authDomain: "rideit-a70cc.firebaseapp.com",
+        databaseURL: "https://rideit-a70cc.firebaseio.com",
+        storageBucket: "rideit-a70cc.appspot.com",
     };
     firebase.initializeApp(config);
 
