@@ -12,6 +12,9 @@ $(document).ready(function() {
     var database = firebase.database();
 
 
+    var scheduleDay = moment().format("dddd, Do MMMM YYYY");
+    $('#schedule').html('Schedule for ' + scheduleDay);
+
     // Button for adding Trains
     $("#addTrainBtn").on("click", function() {
 
