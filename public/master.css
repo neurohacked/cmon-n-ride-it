@@ -6,3 +6,10 @@
 h1,h3 {
     text-align: center;
 }
+.modal-header, .modal-footer {
+    border: none;
+}
+.modal-body {
+    text-align: center;
+    font-weight: bold;
+}
