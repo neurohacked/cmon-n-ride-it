@@ -10,8 +10,32 @@ $(document).ready(function() {
 
     var database = firebase.database();
 
-    //User Authentication
+    //User Authentication - GitHub provider
     var provider = new firebase.auth.GithubAuthProvider();
+
+    // Sign in redirect
+    $("#sign-in").on("click", function() {
+        firebase.auth().signInWithRedirect(provider);
+    });
+    // Get redirect result
+    firebase.auth().getRedirectResult().then(function(result) {
+        if (result.credential) {
+            // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+            var token = result.credential.accessToken;
+            // ...
+        }
+        // The signed-in user info.
+        var user = result.user;
+    }).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        // ...
+    });
 
     // Choo Choo Time
     var audio = new Audio('aud/ride-it.mp3');
