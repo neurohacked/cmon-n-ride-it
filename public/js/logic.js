@@ -108,7 +108,7 @@ $(document).ready(function() {
         // console.log(newTrain.start);
         // console.log(newTrain.frequency);
 
-        // Modal
+        // Confirm Add Train Modal
         $("#subModal").modal();
 
         // Clears all of the text-boxes

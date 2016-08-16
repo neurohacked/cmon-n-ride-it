@@ -7,28 +7,11 @@ body {
 h1, h3 {
     text-align: center;
 }
-.navbar-brand {
-    padding: 7.5px 15px 6.5px;
-}
-.navbar-brand>img {
-    display: inline;
-    margin-right: 10px;
-    height: 100%; /* csslint allow: display-property-grouping */
-}
 .choochoo {
     margin-right: 10px;
 }
-
-/*.modal-header, .modal-footer {
+.sub-confirm>.modal-header, .sub-confirm>.modal-footer {
     border: none;
-}*/
-
-.sub-confirm {
-    text-align: center;
-    font-weight: bold;
-}
-.add-form {
-    font-weight: bold;
 }
 @media screen and (max-width: 364px) {
     .navbar-brand>span {
