@@ -40,17 +40,16 @@ $(document).ready(function() {
         // ...
     });
     // Get current user
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            // User is signed in.
-            $('#sign-in').show();
-            $('#signed-in').hide();
-        } else {
-            // No user is signed in.
-            $('#signed-in').hide();
-            $('#sign-in').show();
-        }
-    });
+    var user = firebase.auth().currentUser;
+    if (user) {
+        // User is signed in.
+        $('#sign-in').show();
+        $('#signed-in').hide();
+    } else {
+        // No user is signed in.
+        $('#signed-in').hide();
+        $('#sign-in').show();
+    }
     // Sign out
     $('#sign-out').on('click', function() {
         firebase.auth().signOut().then(function() {
