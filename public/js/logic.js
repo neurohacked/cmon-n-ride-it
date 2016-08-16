@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-    // FIREBASE /////////////////////////////////////////////////////////
     // Initialize Firebase
     var config = {
         apiKey: "AIzaSyCFq-IZOOpNt317VWEbDEXv0xrYn4ETEyo",
@@ -12,8 +11,7 @@ $(document).ready(function() {
 
     var database = firebase.database();
 
-    // Firebase Authentication ------------------------------------------
-    //User Authentication - GitHub provider
+    // FIREBASE AUTHENTICATION ////////////////////////////////////////    //User Authentication - GitHub provider
     var provider = new firebase.auth.GithubAuthProvider();
 
     // Sign in redirect
@@ -40,16 +38,19 @@ $(document).ready(function() {
         // ...
     });
     // Get current user
-    var user = firebase.auth().currentUser;
-    if (user) {
-        // User is signed in.
-        $('#sign-in').show();
-        $('#signed-in').hide();
-    } else {
-        // No user is signed in.
-        $('#signed-in').hide();
-        $('#sign-in').show();
-    }
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+            console.log(user);
+            $('#sign-in').hide();
+            $('#signed-in').show();
+            $('#user').html(user.displayName);
+        } else {
+            // No user is signed in.
+            $('#signed-in').hide();
+            $('#sign-in').show();
+        }
+    });
     // Sign out
     $('#sign-out').on('click', function() {
         firebase.auth().signOut().then(function() {
@@ -60,7 +61,6 @@ $(document).ready(function() {
     });
 
     // MAIN LOGIC ///////////////////////////////////////////////////////
-
     // Choo Choo Time
     var audio = new Audio('aud/ride-it.mp3');
 
