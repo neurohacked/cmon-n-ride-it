@@ -43,10 +43,11 @@ $(document).ready(function() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             // User is signed in.
-            $('#account').html('Sign out');
+            $('#sign-in').show();
+            $('#signed-in').hide();
         } else {
             // No user is signed in.
-            $('#account').hide();
+            $('#signed-in').hide();
             $('#sign-in').show();
         }
     });
