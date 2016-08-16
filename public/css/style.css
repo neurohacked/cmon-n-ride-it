@@ -18,11 +18,14 @@ h1,h3 {
 #choochoo {
     margin-right: 10px;
 }
-.modal-header, .modal-footer {
+/*.modal-header, .modal-footer {
     border: none;
-}
-.modal-body {
+}*/
+.sub-confirm {
     text-align: center;
+    font-weight: bold;
+}
+.add-form {
     font-weight: bold;
 }
 @media screen and (max-width: 354px) {

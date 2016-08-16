@@ -77,7 +77,12 @@ $(document).ready(function() {
     var scheduleDay = moment().format("dddd, Do MMMM YYYY");
     $('#schedule').html('Schedule for ' + scheduleDay);
 
-    // Button for adding Trains
+    // Link for adding Trains
+    $('#addTrain').on("click", function() {
+        $("#addModal").modal();
+    });
+
+    // Submit new Train
     $("#addTrainBtn").on("click", function() {
 
         // Grabs user input
