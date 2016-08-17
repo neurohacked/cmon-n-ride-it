@@ -39,8 +39,8 @@
 			</div>
 		</nav>
 		<!-- Add Train Modal -->
-		<div class="modal fade" id="addModal" tabindex="-1" role="document">
-			<div class="modal-dialog">
+		<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
 				<!-- Modal content-->
 				<div class="modal-content">
 					<div class="modal-header">
@@ -70,8 +70,8 @@
 								<input type="text" class="form-control" id="trainFrequency">
 							</div>
 							<!-- Confirm Add Modal -->
-							<div class="modal fade" id="subModal" tabindex="-1" role="dialog">
-								<div class="modal-dialog modal-sm">
+							<div class="modal fade" id="subModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+								<div class="modal-dialog modal-sm" role="document">
 									<!-- Modal content-->
 									<div class="modal-content sub-confirm">
 										<div class="modal-header">
@@ -96,19 +96,23 @@
 			</div>
 		</div>
 
-		<!-- Jumbotron -->
+		<!-- Info Panel -->
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="thumbnail">
 					<img src="img/train-banner.jpg" alt="Your Daily Train Schedule">
 					<div class="caption">
-						<span class="info"><p class="info-main">Your Daily Train Schedule</h4><p> - Updated with new trains daily.</p></span>
-						<p><a href="#" class="btn btn-primary" role="button">Learn more <i class="fa fa-info-circle fa-fw"></i></a> <a href="#" id="choochoo" class="btn btn-success choochoo" role="button">Choo Choo! <i class="fa fa-play-circle fa-fw"></i></a></p>
+						<span class="info"><p class="info-main">Your Daily Train Schedule</p><p> - Updated with new trains daily.</p></span>
+						<p><a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseInfo" aria-expanded="false" aria-controls="collapseInfo">Learn more <i class="fa fa-info-circle fa-fw"></i></a> <a id="choochoo" class="btn btn-success choochoo" role="button">Choo Choo! <i class="fa fa-play-circle fa-fw"></i></a></a>
+					</div>
+					<div class="collapse" id="collapseInfo">
+						<div class="well">
+							<p>Welcome to <strong>C'mon N' Ride It (The Train)</strong>!</p><p><strong>Sign in</strong> to add new Trains or use the trains in the schedule available below to plan an exciting trip.</p>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
 		<div class="row">
 			<div class="col-lg-12">
 				<!-- Train Times-->
