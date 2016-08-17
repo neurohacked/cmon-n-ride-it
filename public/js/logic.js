@@ -11,11 +11,11 @@ $(document).ready(function() {
     var database = firebase.database();
 
     // FIREBASE AUTHENTICATION ////////////////////////////////////////    //User Authentication - GitHub provider
-    var provider = new firebase.auth.GithubAuthProvider();
+    var githubProvider = new firebase.auth.GithubAuthProvider();
 
     // Sign in redirect
     $("#sign-in").on("click", function() {
-        firebase.auth().signInWithRedirect(provider);
+        firebase.auth().signInWithRedirect(githubProvider);
     });
     // Get redirect result
     firebase.auth().getRedirectResult().then(function(result) {
