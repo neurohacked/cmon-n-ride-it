@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     // Initialize Firebase
     var config = {
         apiKey: "AIzaSyCFq-IZOOpNt317VWEbDEXv0xrYn4ETEyo",
@@ -123,7 +122,7 @@ $(document).ready(function() {
 
 
     // Creates Firebase event for adding train to the database and a row in the html when a user adds an entry
-    database.ref().on("child_added", function(shot, prevChildKey) {
+    database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
         // console.log(childSnapshot.val());
 
