@@ -123,7 +123,7 @@ $(document).ready(function() {
 
 
     // Creates Firebase event for adding train to the database and a row in the html when a user adds an entry
-    database.ref().on("child_added", function(childSnapshot, prevChildKey) {
+    database.ref().on("child_added", function(shot, prevChildKey) {
 
         // console.log(childSnapshot.val());
 
@@ -163,5 +163,8 @@ $(document).ready(function() {
 
         // console.log('//////////////////////////////////////////////');
 
+        // Handle the errors
+    }, function(errorObject) {
+        console.log("Errors handled: " + errorObject.code);
     });
 });
