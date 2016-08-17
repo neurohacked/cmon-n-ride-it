@@ -10,6 +10,12 @@ body {
 .fa-train:hover {
     color: #286090;
 }
+.sign-in>.modal-body{
+    text-align: center;
+}
+.sign-in-btn {
+    margin: 0 10px;
+}
 .caption p {
     margin-top: 10px;
 }
@@ -32,7 +38,7 @@ body {
 .panel-title {
     text-align: center;
 }
-.sub-confirm>.modal-header, .sub-confirm>.modal-footer {
+.sub-confirm>.modal-header, .sign-in>.modal-header, .sub-confirm>.modal-footer,.sign-in>.modal-footer {
     border: none;
 }
 @media screen and (max-width: 364px) {

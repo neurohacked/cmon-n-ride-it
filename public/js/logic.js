@@ -12,16 +12,26 @@ $(document).ready(function() {
 
     // FIREBASE AUTHENTICATION ////////////////////////////////////////    //User Authentication - GitHub provider
     var githubProvider = new firebase.auth.GithubAuthProvider();
+    //User Authentication - Twitter provider
+    var twitterProvider = new firebase.auth.TwitterAuthProvider();
 
+    // Sign in modal
+    $('#sign-in').on("click", function() {
+        $("#signinModal").modal();
+    });
     // Sign in redirect
-    $("#sign-in").on("click", function() {
+    $("#github-sign-in").on("click", function() {
         firebase.auth().signInWithRedirect(githubProvider);
+    });
+    $("#twitter-sign-in").on("click", function() {
+        firebase.auth().signInWithRedirect(twitterProvider);
     });
     // Get redirect result
     firebase.auth().getRedirectResult().then(function(result) {
         if (result.credential) {
             // This gives you a GitHub Access Token. You can use it to access the GitHub API.
             var token = result.credential.accessToken;
+            var secret = result.credential.secret;
             // ...
         }
         // The signed-in user info.

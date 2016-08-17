@@ -38,6 +38,25 @@
 				</div>
 			</div>
 		</nav>
+		<!-- Sign in Modal -->
+		<div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog modal-sm" role="document">
+				<!-- Modal content-->
+				<div class="modal-content sign-in">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+						<p>
+							<a id="twitter-sign-in" class="btn btn-primary sign-in-btn"><i class="fa fa-twitter fa-lg"></i> Twitter</a>
+							<a id="github-sign-in" class="btn btn-default sign-in-btn"><i class="fa fa-github fa-lg"></i> Github</a>
+						</p>
+					</div>
+					<div class="modal-footer">
+					</div>
+				</div>
+			</div>
+		</div>
 		<!-- Add Train Modal -->
 		<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
@@ -54,17 +73,14 @@
 								<label for="">Train Name</label>
 								<input type="text" class="form-control" id="trainName">
 							</div>
-
 							<div class="form-group">
 								<label for="">Destination</label>
 								<input type="text" class="form-control" id="trainDestination">
 							</div>
-
 							<div class="form-group">
 								<label for="">First Train Time (HH:mm - military time)</label>
 								<input type="text" class="form-control" id="firstTime">
 							</div>
-
 							<div class="form-group">
 								<label for="">Frequency (min)</label>
 								<input type="text" class="form-control" id="trainFrequency">
@@ -102,14 +118,9 @@
 				<div class="thumbnail">
 					<img src="img/train-banner.jpg" alt="Your Daily Train Schedule">
 					<div class="caption">
-						<span class="info"><p class="info-main">Your Daily Train Schedule</p><p> - Updated with new trains daily.</p></span>
+						<span class="info"><p class="info-main">Your Daily Train Schedule</p><p> - Updated with new trains frequently.</p></span>
 						<p>
-							<a tabindex="0" class="btn btn-primary" role="button" data-toggle="popover" data-trigger="focus" title="To get started..." data-content="&lt;strong&gt;Sign in&lt;/strong&gt; to add new Trains or use the trains in the schedule available below to plan an exciting trip. Enjoy!">Learn more <i class="fa fa-info-circle fa-fw"></i></a> <a id="choochoo" class="btn btn-success choochoo" role="button">Choo Choo! <i class="fa fa-play-circle fa-fw"></i></a></p>
-					</div>
-					<div class="collapse" id="collapseInfo">
-						<div class="well">
-							<p>Welcome to <strong>C'mon N' Ride It (The Train)</strong>!</p><p><strong>Sign in</strong> to add new Trains or use the trains in the schedule available below to plan an exciting trip.</p>
-						</div>
+							<a tabindex="0" class="btn btn-primary" role="button" data-toggle="popover" data-trigger="focus" title="To get started..." data-content="&lt;strong&gt;Sign in&lt;/strong&gt; to add new Trains or use the trains in the schedule available below to plan an exciting trip. Enjoy!">Learn more <i class="fa fa-info-circle fa-fw"></i></a>							<a id="choochoo" class="btn btn-success choochoo" role="button">Choo Choo! <i class="fa fa-play-circle fa-fw"></i></a></p>
 					</div>
 				</div>
 			</div>
