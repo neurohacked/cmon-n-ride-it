@@ -131,8 +131,12 @@ $(document).ready(function() {
         return false;
     });
     // EXTRAS ///////////////////////////////////////////////////////////
+    // More Info Popover
+    $(function() {
+        $('[data-toggle="popover"]').popover({ html : true});
+    });
     // Choo Choo Time
-    var audio = new Audio('aud/ride-it.mp3');
+    var audio = new Audio('audio/ride-it.mp3');
     var choochoo = $('#choochoo');
 
     $("#choochoo").on("click", function() {

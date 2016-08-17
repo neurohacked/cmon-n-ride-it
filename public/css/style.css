@@ -23,6 +23,9 @@ body {
     line-height: 1.1;
     color: inherit;
 }
+.well {
+    margin-bottom: 0;
+}
 .choochoo {
     margin-left: 10px;
 }
