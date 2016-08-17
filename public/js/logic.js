@@ -59,20 +59,39 @@ $(document).ready(function() {
     });
 
     // MAIN LOGIC ///////////////////////////////////////////////////////
-    // Choo Choo Time
-    var audio = new Audio('aud/ride-it.mp3');
-
-    $("#choochoo").on("click", function() {
-        if (audio.paused) audio.play();
-        else {
-            audio.pause();
-            audio.currentTime = 0;
-        }
-    });
-
     // Schedule date for current day
     var scheduleDay = moment().format("dddd, Do MMMM YYYY");
     $('#schedule').html('Schedule for ' + scheduleDay);
+
+    // Creates Firebase event for adding train to the database and a row in the html when a user adds an entry
+    database.ref().on("child_added", function(childSnapshot, prevChildKey) {
+
+        // Store everything into a variable.
+        var trainName = childSnapshot.val().name;
+        var trainDestination = childSnapshot.val().destination;
+        var firstTime = childSnapshot.val().start;
+        var trainFrequency = childSnapshot.val().frequency;
+
+        // First Time (pushed back 1 year to make sure it comes before current time)
+        var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
+        // Current Time
+        var currentTime = moment();
+        // Difference between the times
+        var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+        // Time apart (remainder)
+        var trainRemainder = diffTime % trainFrequency;
+        // Minute Until Next Train
+        var minutesAway = trainFrequency - trainRemainder;
+        // Next Train
+        var nextArrival = moment().add(minutesAway, "minutes").format('LT');
+
+        // Add each train's data into the table
+        $("#trainTable > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDestination + "</td><td>" + trainFrequency + "</td><td>" + nextArrival + "</td><td>" + minutesAway + "</td></tr>");
+
+        // Handle the errors
+    }, function(errorObject) {
+        console.log("Errors handled: " + errorObject.code);
+    });
 
     // Link for adding Trains
     $('#addTrain').on("click", function() {
@@ -111,35 +130,20 @@ $(document).ready(function() {
         // Prevents moving to new page
         return false;
     });
+    // EXTRAS ///////////////////////////////////////////////////////////
+    // Choo Choo Time
+    var audio = new Audio('aud/ride-it.mp3');
+    var choochoo = $('#choochoo');
 
-
-    // Creates Firebase event for adding train to the database and a row in the html when a user adds an entry
-    database.ref().on("child_added", function(childSnapshot, prevChildKey) {
-
-        // Store everything into a variable.
-        var trainName = childSnapshot.val().name;
-        var trainDestination = childSnapshot.val().destination;
-        var firstTime = childSnapshot.val().start;
-        var trainFrequency = childSnapshot.val().frequency;
-
-        // First Time (pushed back 1 year to make sure it comes before current time)
-        var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
-        // Current Time
-        var currentTime = moment();
-        // Difference between the times
-        var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-        // Time apart (remainder)
-        var trainRemainder = diffTime % trainFrequency;
-        // Minute Until Next Train
-        var minutesAway = trainFrequency - trainRemainder;
-        // Next Train
-        var nextArrival = moment().add(minutesAway, "minutes").format('LT');
-
-        // Add each train's data into the table
-        $("#trainTable > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDestination + "</td><td>" + trainFrequency + "</td><td>" + nextArrival + "</td><td>" + minutesAway + "</td></tr>");
-
-        // Handle the errors
-    }, function(errorObject) {
-        console.log("Errors handled: " + errorObject.code);
+    $("#choochoo").on("click", function() {
+        if (audio.paused) {
+            audio.play();
+            choochoo.html('Choo Choo! <i class="fa fa-stop-circle fa-fw"></i>');
+        } else {
+            audio.pause();
+            audio.currentTime = 0;
+            choochoo.html('Choo Choo! <i class="fa fa-play-circle fa-fw"></i>');
+        }
     });
+
 });
