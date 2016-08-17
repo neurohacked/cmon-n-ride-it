@@ -10,12 +10,21 @@ body {
 .fa-train:hover {
     color: #286090;
 }
+.caption p {
+    margin-top: 10px;
+}
+.info p {
+    display: inline;
+}
+.info-main {
+    font-size: 18px;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
 .choochoo {
     margin-left: 10px;
-}
-.jumbotron {
-    padding-top: 25px;
-    padding-bottom: 25px;
 }
 .panel-title {
     text-align: center;
