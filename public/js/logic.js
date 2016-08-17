@@ -40,7 +40,6 @@ $(document).ready(function() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             // User is signed in.
-            console.log(user);
             $('#sign-in').hide();
             $('#signed-in').show();
             $('#user').html(user.displayName);
@@ -69,7 +68,6 @@ $(document).ready(function() {
             audio.pause();
             audio.currentTime = 0;
         }
-        console.log('Choo Choo');
     });
 
     // Schedule date for current day
@@ -139,8 +137,6 @@ $(document).ready(function() {
 
         // Add each train's data into the table
         $("#trainTable > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDestination + "</td><td>" + trainFrequency + "</td><td>" + nextArrival + "</td><td>" + minutesAway + "</td></tr>");
-
-        // console.log('//////////////////////////////////////////////');
 
         // Handle the errors
     }, function(errorObject) {
