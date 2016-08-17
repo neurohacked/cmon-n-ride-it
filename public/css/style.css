@@ -10,8 +10,8 @@ body {
 .fa-train:hover {
     color: #286090;
 }
-.navbar-right~.navbar-right {
-    margin-right: 10px;
+.choochoo {
+    margin-left: 10px;
 }
 .jumbotron {
     padding-top: 25px;
